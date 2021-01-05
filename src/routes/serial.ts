@@ -1,20 +1,18 @@
 import { Application, Request, Response } from "express";
 import SerialPort from "serialport"; 
-import ReadLine from "@serialport/parser-readline";
+const ReadLine = require('@serialport/parser-readline');
 
 export class Serial {
-  public route(app: Application) {
-    const port = new SerialPort('/dev/ttyACM0', { baudRate: 9600 });
-    const parser = port.pipe(new ReadLine({ delimiter: '\n' }));
-
-    app.get("/api/serial", (req: Request, res: Response) => {
-      port.on("open", () => {
-        console.log('serial port open');
+  public route(app: Application, port: SerialPort, parser: any) {
+    app.get("/serial", (req: Request, res: Response) => {
+      port.write('E', (err) => {
+        if (err) { return console.log('Error: ' + err.message); }
+        console.log('message sent!');
+        res.status(200).json({ message: "Get request successfull"});
       });
-      port.on("data", () => {
-        console.log('got word from arduino:', data);
-        res.status(200).json({ message: `got word from arduino: ${ data }`})
-      });
+      port.on('data', (data) => {
+        console.log('Firom Arduino: ' + data);
+      })
     });
   }
 }

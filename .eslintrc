@@ -10,7 +10,7 @@
     "plugin:@typescript-esling/recommended"
   ],
   "rules": {
-    no-console: 2 // This means no error
+    no-console: 2, // This means no error
     "no-loops/no-loops": 2
   }
 }

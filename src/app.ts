@@ -6,9 +6,9 @@ const ReadLine = require('@serialport/parser-readline');
 
 // Importing routes
 import { TestRoutes } from "./routes/test_routes";
-import { Serial } from "./routes/serial";
+import { SerialTest } from "./routes/serial";
 
-// Setting client variables
+// Setting client variables for SerailTeat Route
 const port: SerialPort = new SerialPort('/dev/ttyACM0', { baudRate: 9600 });
 const parser: ReadLine = new ReadLine();
 port.pipe(parser);
@@ -21,7 +21,7 @@ class App {
 
   // setting the routes
   private test_routes: TestRoutes = new TestRoutes();
-  private serial: Serial = new Serial();
+  private serial: SerialTest = new SerialTest();
 
   // initializing all the route objects
   constructor() {

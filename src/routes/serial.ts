@@ -29,7 +29,7 @@ export class SerialTest {
       if (action == 'off') {
         port.write('F', (err) => {
           if (err) { return console.log('Error: ' + err.message); res.status(500).send(); }
-          consol.log('message sent!');
+          console.log('message sent!');
           // Return status 200 for agnoledgement of successfull Serial Port write
           return res.status(200).json({ message: "Get request successful" });
         });

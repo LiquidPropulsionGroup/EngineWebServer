@@ -1,5 +1,5 @@
 import { Application, Request, Response } from "express";
-import SerialPort from "serialport"; 
+import SerialPort from "serialport";
 const ReadLine = require('@serialport/parser-readline');
 
 export class Serial {
@@ -8,11 +8,9 @@ export class Serial {
       port.write('E', (err) => {
         if (err) { return console.log('Error: ' + err.message); }
         console.log('message sent!');
-        res.status(200).json({ message: "Get request successfull"});
+        res.status(200).json({ message: "Get request successfull" });
       });
-      port.on('data', (data) => {
-        console.log('Firom Arduino: ' + data);
-      })
+      // parser.on('data', console.log);
     });
   }
 }

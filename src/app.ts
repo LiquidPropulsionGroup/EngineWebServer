@@ -10,7 +10,8 @@ import { Serial } from "./routes/serial";
 
 // Setting client variables
 const port: SerialPort = new SerialPort('/dev/ttyACM0', { baudRate: 9600 });
-const parser = port.pipe(new ReadLine({ delimiter: '\n' }));
+const parser: ReadLine = new ReadLine();
+port.pipe(parser);
 
 // Creating add class that initializes all the routes passing the nessarary
 // client variables

@@ -7,7 +7,7 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-esling/recommended"
+    "plugin:@typescript-eslint/recommended"
   ],
   "rules": {
     no-console: 2, // This means no error

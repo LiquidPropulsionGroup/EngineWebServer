@@ -11,6 +11,6 @@
   ],
   "rules": {
     no-console: 2, // This means no error
-    "no-loops/no-loops": 2
+    "no-loops/no-loops": 0
   }
 }

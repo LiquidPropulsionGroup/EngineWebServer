@@ -2,33 +2,50 @@
 import express from "express";
 import * as bodyParser from "body-parser";
 import SerialPort from "serialport";
-const ReadLine = require('@serialport/parser-readline');
+const Readline = require('@serialport/parser-readline'); // causing issues: info --> https://stackoverflow.com/questions/43112619/typescript-require-statement-not-part-of-an-import-statement
 
 // Importing routes
-import { TestRoutes } from "./routes/test_routes";
-import { SerialTest } from "./routes/serial";
+import { Main } from "./routes/main";
+import { Press } from "./routes/press";
+import { Purge } from "./routes/purge";
+import { Vent } from "./routes/vent";
 
-// Setting client variables for SerailTeat Route
-const port: SerialPort = new SerialPort('/dev/ttyACM0', { baudRate: 9600 });
-const parser: ReadLine = new ReadLine();
-port.pipe(parser);
-
-// Creating add class that initializes all the routes passing the nessarary
-// client variables
+// Class 'App' that sets up routes, ports, and a parser
 class App {
-  // Setting the express appication
+  // Setting public variables
   public app: express.Application;
+  public parser;
+  public main_port: SerialPort;
+  public press_port: SerialPort;
+  public purge_port: SerialPort;
+  public vent_port: SerialPort;
+  // Setting private routesi
+  private main_route: Main = new Main();
+  private press_route: Press = new Press();
+  private purge_route: Purge = new Purge();
+  private vent_route: Vent = new Vent();
 
-  // setting the routes
-  private test_routes: TestRoutes = new TestRoutes();
-  private serial: SerialTest = new SerialTest();
-
-  // initializing all the route objects
+  // initializing everything
   constructor() {
+    // Initializing app and parser
     this.app = express();
+    this.parser = new Readline();
+    // Initializing ports with parser pipes
+    this.main_port = new SerialPort('/dev/*add later*', { baudRate: 9600 });
+    this.main_port.pipe(this.parser);
+    this.press_port = new SerialPort('/dev/*add later*', { baudRate: 9600 });
+    this.press_port.pipe(this.parser);
+    this.purge_port = new SerialPort('/dev/*add later*', { baudRate: 9600 });
+    this.purge_port.pipe(this.parser);
+    this.vent_port = new SerialPort('/dev/*add later*', { baudRate: 9600 });
+    this.vent_port.pipe(this.parser);
+    // Initializing routes with proper variables
+    this.main_route.route(this.app, this.main_port, this.parser);
+    this.press_route.route(this.app, this.press_port, this.parser);
+    this.purge_route.route(this.app, this.purge_port, this.parser);
+    this.vent_route.route(this.app, this.vent_port, this.parser);
+    // Initializing middle ware
     this.config();
-    this.test_routes.route(this.app);
-    this.serial.route(this.app, port, parser);
   }
 
   // extras

@@ -1,13 +1,13 @@
 // Importing dependencies
 import { Application, Request, Response } from "express";
 import SerialPort from "serialport";
-// const ReadLine = require('@serialport/parser-readline');
+const Readline = require('@serialport/parser-readline'); 
 
 // Creating class that initializes the SerialTest route. This will only
 // be used in development.
 export class Press {
   // Setting up the route with params: app, port, & parser
-  public route(app: Application, port: SerialPort, parser: any) {
+  public route(app: Application, port: SerialPort, parser: typeof Readline) {
     // Setting up the GET route; this is the only route
     app.get("/serial/press/:action", (req: Request, res: Response) => {
       // Grabbing params from the URI

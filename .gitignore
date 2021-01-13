@@ -2,5 +2,7 @@
 /client/node_modules
 /dist
 /old
+/build
+package-lock.json
 .vscode
 .env

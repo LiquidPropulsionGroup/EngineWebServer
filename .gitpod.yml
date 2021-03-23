@@ -1,0 +1,6 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: TypeScript
+    init: npm install -g ts-node typescript @types/node @types/express @types/body-parser @typescript-eslint/eslint-plugin @typescript-eslint/parser

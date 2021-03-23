@@ -1,8 +1,7 @@
-/node_modules
-/client/node_modules
-/dist
-/old
-/build
-package-lock.json
+# EngineWebServer untracked
+/WebServer/node_modules
+/WebServer/build
+
+# Dotfiles
 .vscode
 .env

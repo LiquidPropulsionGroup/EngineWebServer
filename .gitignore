@@ -1,6 +1,6 @@
-# EngineWebServer untracked
-/WebServer/node_modules
-/WebServer/build
+# Valve Control Service untracked
+/Valve Control Service/node_modules
+/Valve Control Service/build
 
 # Dotfiles
 .vscode

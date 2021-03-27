@@ -14,4 +14,4 @@ RUN npm run build
 
 # Start
 CMD [ "npm", "run", "production" ]
-EXPOSE 5000
+EXPOSE 3001

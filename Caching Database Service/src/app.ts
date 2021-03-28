@@ -3,19 +3,20 @@ import express from "express";
 import * as bodyParser from "body-parser";
 
 // Importing routes
-import { startCache } from "./routes/startCache";
+import { startCach } from "./routes/startCach";
 
 // Class 'App' that sets up routes, ports, and a parser
 class App {
   // Setting public variables
   public app: express.Application;
   // Setting private routesi
-  private startCach_route: startCache = new startCache();
+  private startCach_route: startCach = new startCach();
 
   // initializing everything
   constructor() {
     // Initializing app and parser
     this.app = express();
+    this.startCach_route = new startCach();
     // Initializing routes with proper variables
     this.startCach_route.route(this.app);
     // Initializing middle ware

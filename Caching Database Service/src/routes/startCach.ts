@@ -4,11 +4,11 @@ import { spawn } from "child_process";
 
 // Creating class that initializes the SerialTest route. This will only
 // be used in development.
-export class startCache {
-  // Setting up the route with params: app
+export class startCach {
+  // Setting up the route with params: app, port, & parser
   public route(app: Application) {
     // Setting up the GET route; this is the only route
-    app.get("/cach/:action", (req: Request, res: Response) => {
+    app.get("/serial/vent/:action", (req: Request, res: Response) => {
       // Grabbing params from the URI
       let action = req.params.action || req.param("action");
 

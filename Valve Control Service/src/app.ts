@@ -33,11 +33,21 @@ class App {
     // Initializing ports with parser pipes
     this.main_port = new SerialPort("/dev/controller_main", { baudRate: 9600 });
     this.main_port.pipe(this.parser);
+    this.press_port = new SerialPort("/dev/controller_press", {
+      baudRate: 9600,
+    });
+    this.press_port.pipe(this.parser);
+    this.purge_port = new SerialPort("/dev/controller_purge", {
+      baudRate: 9600,
+    });
+    this.purge_port.pipe(this.parser);
+    this.vent_port = new SerialPort("/dev/controler_vent", { baudRate: 9600 });
+    this.vent_port.pipe(this.parser);
     // Initializing routes with proper variables
     this.main_route.route(this.app, this.main_port, this.parser);
-    this.press_route.route(this.app, this.main_port, this.parser);
-    this.purge_route.route(this.app, this.main_port, this.parser);
-    this.vent_route.route(this.app, this.main_port, this.parser);
+    this.press_route.route(this.app, this.press_port, this.parser);
+    this.purge_route.route(this.app, this.purge_port, this.parser);
+    this.vent_route.route(this.app, this.vent_port, this.parser);
     // Initializing middle ware
     this.config();
   }

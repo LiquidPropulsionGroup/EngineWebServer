@@ -1,7 +1,7 @@
 {
-  "name": "",
+  "name": "Valve Control Service",
   "version": "1.0.0",
-  "description": "",
+  "description": "EngineWebServer - Valve Control Service",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

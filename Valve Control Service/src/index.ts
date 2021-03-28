@@ -4,7 +4,7 @@ import app from "./app";
 import { AddressInfo } from "net";
 
 // Serving the REST api
-const server = app.listen(5000, "0.0.0.0", () => {
+const server = app.listen(3001, "127.0.0.1", () => {
   const { port, address } = server.address() as AddressInfo;
   console.log("Server listening on:", "http://" + address + ":" + port);
 });

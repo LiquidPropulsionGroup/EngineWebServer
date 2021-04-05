@@ -6,7 +6,9 @@ tasks:
     init: npm install -g ts-node typescript @types/node @types/express @types/body-parser @typescript-eslint/eslint-plugin @typescript-eslint/parser
 
   - name: Valve-Control-Service:Docker-Build
-    init: cd ./Caching Database Service/ && docker build -t valve-control-service .
+    init: cd Caching\ Database\ Service/
+    command: docker build -t valve-control-service .
 
   - name: Caching-Database-Service:Docker-Build
-    init: cd ./Valve Control Service/ && docker build -t caching-database-service .
+    init: cd Valve\ Control\ Service/
+    command: docker build -t caching-database-service .

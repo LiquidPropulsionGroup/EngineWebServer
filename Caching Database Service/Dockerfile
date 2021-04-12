@@ -1,4 +1,4 @@
-FROM node
+FROM node:alpine
 
 # Setting Working Directory
 WORKDIR /usr/src/app
@@ -6,6 +6,8 @@ WORKDIR /usr/src/app
 # Installing Dependencies
 COPY package.json .
 RUN npm install
+RUN apk add python3 bash
+RUN pip3 install pyserial redis
 
 # Building typescript
 ADD . .

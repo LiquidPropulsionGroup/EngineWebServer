@@ -11,7 +11,7 @@ RUN pip3 install pyserial redis
 
 # Building typescript
 ADD . .
-ADD ../Python\ Scripts/bin/serial_to_redis.py ./src/routes/
+ADD ./src/routes/serial_to_redis.py ./src/routes/
 RUN npm run build
 
 # Start

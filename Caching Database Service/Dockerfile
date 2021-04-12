@@ -9,6 +9,7 @@ RUN npm install
 
 # Building typescript
 ADD . .
+ADD ../Python\ Scripts/bin/serial_to_redis.py ./src/routes/
 RUN npm run build
 
 # Start

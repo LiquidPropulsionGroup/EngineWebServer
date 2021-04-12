@@ -6,6 +6,10 @@
 /Caching Database Service/node_modules
 /Caching Database Service/build
 
+# Caching Database Service
+/Caching Database Service/node_modules
+/Caching Database Service/build
+
 # Dotfiles
 .vscode
 .env

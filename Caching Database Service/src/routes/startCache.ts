@@ -14,7 +14,7 @@ export class startCache {
 
       switch (action) {
         case 'ON':
-          spawn("python", ["serial_to_redis.py", "9600", "/dev/sensor_main", "10.5.0.5", "testfire"], {detached: true}); // starts running script.py (a temporary file) in the background
+          spawn("python", ["serial_to_redis.py", "9600", "/dev/sensor_main", "192.168.0.11", "testfire"], {detached: true}); // starts running script.py (a temporary file) in the background
           return res.status(500).send("Python script started");
       
         case 'OFF':

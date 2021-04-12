@@ -14,23 +14,17 @@ export class startCache {
 
       switch (action) {
         case 'ON':
-          let pythonProcess = spawn("python", ["-u", "script.py"], {detached: true}); // starts running script.py (a temporary file) in the background
-          pythonProcess.stdout.on("data", (data) => {
-            return res.status(500).send(`Python script started:\n${data}`);
-          });
+          spawn("python", ["serial_to_redis.py", "9600", "/dev/sensor_main", "10.5.0.5", "testfire"], {detached: true}); // starts running script.py (a temporary file) in the background
+          return res.status(500).send("Python script started");
       
         case 'OFF':
-          let terminateProcess = spawn("bash", ["termscript.sh"], {detached: true}); // ps aux | grep "python -u script.py" | tr -s' ' | cut -d' ' -f2 | xargs kill
-          terminateProcess.on("exit", (code) => {
-            return res.status(500).send(`Python script stopped:\n${code}`);
-          });
+          spawn("bash", ["termscript.sh"], {detached: true}); // ps aux | grep "python -u script.py" | tr -s' ' | cut -d' ' -f2 | xargs kill
+          return res.status(500).send("Python script stopped");
 
         default:
           // Returning 404 since only ON and OFF URI exsist
           return res.status(404).send("Action: " + action);
       }
-      // pythonProcess.stdout.on("data", (data) => {}); // What to do when stdout is printed (data)
-      // pythonProcess.on("exit", (code) => {}); // What to do when program is done
     });
   }
 }

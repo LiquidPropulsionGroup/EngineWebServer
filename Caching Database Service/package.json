@@ -1,5 +1,5 @@
 {
-  "name": "Caching Database Service",
+  "name": "caching-database-service",
   "version": "1.0.0",
   "description": "EngineWebServer - Caching Database Service",
   "main": "index.js",

@@ -1,0 +1,31 @@
+version: '3.4'
+
+services:
+    valve-control-service:
+        container_name: valve-control
+        network_mode: host
+        build:
+            context: ./Valve Control Service
+            dockerfile: Dockerfile
+        ports:
+            - 3001:3001
+        devices:
+            - "/dev/sensor_main:/dev/sensor_main"
+
+    caching-database-service:
+        container_name: caching-service
+        network_mode: host
+        build:
+            context: ./Caching Database Service
+            dockerfile: Dockerfile
+        ports:
+            - 3002:3002
+        devices:
+            - "/dev/controller_main:/dev/controller_main"
+        
+    redis-db:
+        container_name: redis-database
+        network_mode: host
+        image: redis
+        ports:
+            - 6379:6379

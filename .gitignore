@@ -1,6 +1,14 @@
-# EngineWebServer untracked
-/WebServer/node_modules
-/WebServer/build
+# Valve Control Service untracked
+/Valve Control Service/node_modules
+/Valve Control Service/build
+
+# Caching Database Service
+/Caching Database Service/node_modules
+/Caching Database Service/build
+
+# Caching Database Service
+/Caching Database Service/node_modules
+/Caching Database Service/build
 
 # Dotfiles
 .vscode

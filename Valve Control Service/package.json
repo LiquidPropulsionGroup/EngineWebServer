@@ -1,5 +1,5 @@
 {
-  "name": "Valve Control Service",
+  "name": "valve-control-service",
   "version": "1.0.0",
   "description": "EngineWebServer - Valve Control Service",
   "main": "index.js",

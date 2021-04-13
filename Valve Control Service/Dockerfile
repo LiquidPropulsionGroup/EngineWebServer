@@ -1,5 +1,5 @@
 # Using Node Docker Image
-FROM node
+FROM node:alpine
 
 # Setting Working Directory
 WORKDIR /usr/src/app
